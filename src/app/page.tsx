@@ -1,5 +1,4 @@
 import Layout from "@/components/HOC/layout/layout";
-import Homepage from "@/components/home-page/homepage";
 import Navbar from "@/components/shared-components/navbar";
 
 export default function Home() {
