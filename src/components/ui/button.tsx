@@ -12,38 +12,29 @@ type ButtonProps = {
 );
 
 const Button = ({ text, link, onclick }: ButtonProps) => {
-  if (link) {
-    return (
-      <div className="group relative w-fit overflow-hidden rounded">
-        <a href="">
-          <button
-            onClick={onclick}
-            className="relative z-10 rounded border border-black bg-transparent px-5 py-2"
-          >
-            {text}
-          </button>
-        </a>
-        <div className="absolute inset-y-0 left-0 right-full bg-red-300 transition-all duration-300 group-hover:right-0"></div>
-      </div>
-    );
-  }
+  const commonProps = {
+    className:
+      "relative z-10 rounded border border-black bg-transparent px-5 py-2",
+    role: "button",
+    "aria-label": text,
+  };
 
-  if (onclick) {
-    return (
-      <div className="group relative w-fit overflow-hidden rounded">
-        <button
-          onClick={onclick}
-          className="relative z-10 rounded border border-black bg-transparent px-5 py-2"
-        >
+  const content = (
+    <div className="group relative w-fit overflow-hidden rounded">
+      {link ? (
+        <a href={link} {...commonProps}>
+          {text}
+        </a>
+      ) : (
+        <button onClick={onclick} {...commonProps}>
           {text}
         </button>
-        <div className="absolute inset-y-0 left-0 right-full bg-red-300 transition-all duration-300 group-hover:right-0"></div>
-      </div>
-    );
-  }
+      )}
+      <div className="absolute inset-y-0 left-0 right-full bg-red-300 transition-all duration-300 group-hover:right-0" />
+    </div>
+  );
 
-  // This fallback should never happen because of strict type enforcement
-  return null;
+  return content;
 };
 
 export default Button;
