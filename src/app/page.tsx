@@ -1,7 +1,14 @@
+import Layout from "@/components/HOC/layout/layout";
+import Homepage from "@/components/home-page/homepage";
+import Navbar from "@/components/shared-components/navbar";
+
 export default function Home() {
   return (
     <div>
-      <h1 className="text-3xl">Store it- the only storage option you need</h1>
+      <Navbar />
+      <h1 className="text-3xl">
+        <Layout />
+      </h1>
     </div>
   );
 }
