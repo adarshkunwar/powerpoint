@@ -1,7 +1,9 @@
+import { useMemo } from "react";
 import ListCard from "../HOC/listCard";
 
-const notificationListArray = Array.from({ length: 5 }).fill("_");
 const NotificationList = () => {
+  const notificationListArray = useMemo(() => new Array(5).fill("_"), []);
+
   return notificationListArray.map((_, index) => {
     return (
       <ListCard key={index} onCheck={() => {}} onCross={() => {}}>
